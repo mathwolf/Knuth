@@ -89,3 +89,4 @@ L5      LDA     TABLE,1
         JSJ     L5
 L6      HLT
         END     START
+* this comment refers to nothing
