@@ -1,0 +1,91 @@
+*
+* Create and display a table of the first M primes
+*
+*
+CAND    EQU     101     candidate integer to be tested
+MAX     EQU     102     max offset of table (size minus 1)
+N       EQU     103     temp storage
+LINEMAX EQU     104     maximum primes to print on a single line
+CBUF    EQU     105     start of current buffer
+BUF1    EQU     400     buffers for writing output
+BUF2    EQU     425
+TERM    EQU     19      stdout
+* Initialize table with first two primes
+        ORIG    500
+TABLE   CON     2
+        CON     3
+        ORIG    3000
+START   ENTA    499     desired max offset of table
+        STA     MAX
+        ENTA    10
+        STA     LINEMAX each line of output contains 10 primes
+        ENT1    1       we begin with 2 primes in the table
+*
+* Check to see if table is full, halt if it is
+L0      CMP1    MAX
+        JL      L1
+        JSJ     DISP
+*
+* Add another prime to the table
+* Initialize the next candidate to next odd number after largest prime in table
+L1      LDA     TABLE,1
+        INCA    2
+        STA     CAND
+* index for prime divisors is reset
+        ENT2    0
+* Check divisibility of this new candidate by previous table entries
+L2      ENTA    0
+        LDX     CAND            load candidate integer
+        DIV     TABLE,2
+        JXZ     L4
+* nonzero remainder, check if we are at end of table
+        ST1     N
+        CMP2    N
+        JE      L3
+* not at end of table, prepare to check next divisor
+        INC2    1
+        JSJ     L2
+* at end of table, current candidate is the next prime
+L3      INC1    1
+        LDA     CAND
+        STA     TABLE,1
+        JSJ     L0
+* zero remainder, candidate is not prime
+* initialize next candidate
+L4      LDA     CAND
+        INCA    2
+        STA     CAND
+        ENT2    0
+        JSJ     L2
+* table is finished, display the results
+* start by initializing the index registers
+DISP    ENT1    0
+        ENT2    0
+* last cell of each buffer points to the other buffer
+        LDA     BUF2
+        STA     BUF1 + 24
+        LDA     BUF1
+        STA     BUF2 + 24
+* set the current buffer
+        STA     CBUF
+* write next word to line
+L5      LDA     TABLE,1
+        CHAR
+        STX     CBUF,2(2:5)
+        INC1    1
+        INC2    1
+* check to see if we are at end of current line
+        CMP2    LINEMAX
+        JNE     L5
+* at the end of a line, send the buffer to the printer
+        OUT     CBUF(TERM)
+* check to see if we are at the end of the table
+        CMP1    MAX
+        JGE     L6
+* not at end of table, so switch buffers and get another line
+        LDA     CBUF + 24
+        STA     CBUF
+        ENT2    0
+        JSJ     L5
+L6      HLT
+        END     START
