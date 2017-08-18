@@ -90,7 +90,7 @@ DISP    ENT1    0
         LDA     CBUF + 24
         STA     CBUF
         ENT2    0
-        JSJ     2H
+        JSJ     2B
 4H      HLT
 TITLE   ALF     "THE F"
         ALF     "IRST "
