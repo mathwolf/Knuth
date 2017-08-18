@@ -68,6 +68,8 @@ DISP    ENT1    0
         STA     BUF2 + 24
 * set the current buffer
         STA     CBUF
+* display the title
+        OUT     TITLE(TERM)
 * write next word to line
 L5      LDA     TABLE,1
         CHAR
