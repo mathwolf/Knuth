@@ -30,7 +30,7 @@ START   ENTA    2000
         ENT1    BUF1
         MOVE    TITLE(7)
         OUT     BUF1(TERM)
-        OUT     BUF2(TERM)
+        JBUS    *(TERM)         wait until title is done printing
         MOVE    BUF2(7)         zero out the first buffer
 * begin date calculations for current year
 * find golden number
