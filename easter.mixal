@@ -81,6 +81,7 @@ START   ENTA    19
         DECA    10
         STA     SUND
 * find epact
+        LD1     DATE    for debugging
         ENTA    11
         MUL     GOLD
         SLAX    5
@@ -117,7 +118,6 @@ START   ENTA    19
         CMPA    C31
         JG      2F
 * we are in march
-        LD1     DATE    for debugging
         CHAR
         SLAX    8
         ADD     897
@@ -125,8 +125,7 @@ START   ENTA    19
         OUT     BUFM(TERM)
         JSJ     4F
 * we are in april
-2H      LD1     DATE    for debugging
-        DECA    31
+2H      DECA    31
         CHAR
         SLAX    8
         ADD     81
