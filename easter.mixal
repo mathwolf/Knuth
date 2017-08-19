@@ -62,12 +62,12 @@ START   ENTA    19
         INCA    1
         STA     CENT
 * find corrections
-        ENTA    C3
+        ENTA    3
         MUL     CENT
         DIV     C4
         DECA    12
         STA     CORX
-        ENTA    C8
+        ENTA    8
         MUL     CENT
         INCX    5
         DIV     C25
