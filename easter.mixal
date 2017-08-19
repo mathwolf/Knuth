@@ -148,4 +148,5 @@ CALC    ENTA    0
         INCA    1
         STA     YEAR
         JSJ     CALC
-6H      END     START
+6H      HLT
+        END     START
