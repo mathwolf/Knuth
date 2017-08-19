@@ -34,6 +34,7 @@ START   ENTA    2000
 * set the current buffer
         STA     CBUF
 * print title of table
+        ENT3    10              for debugging
         LDA     STYR
         CHAR
         ENTA    0
