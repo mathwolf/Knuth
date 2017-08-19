@@ -88,6 +88,9 @@ START   ENTA    19
         INCA    20
         ADD     CORZ
         SUB     CORX
+        SRAX    5
+        DIV     =30=
+        SLAX    5
         CMPA    C25
         JNE     2F
         ENTX    11
