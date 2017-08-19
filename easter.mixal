@@ -35,6 +35,19 @@ START   ENTA    STYR
         STA     CBUF
 * print title of table
         ENT1    BUF1
+        LDA     STYR
+        CHAR
+        ENTA    0
+        SLAX    4
+        STA     TITLE + 4
+        SLAX    4
+        ADD     =1488=          TO
+        SLAX    1
+        STA     TITLE + 5
+        LDA     ENDYR
+        CHAR
+        SLAX    5
+        STA     TITLE + 6
         MOVE    TITLE(7)
         OUT     BUF1(TERM)
         JBUS    *(TERM)         wait until title is done printing
