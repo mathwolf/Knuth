@@ -138,7 +138,9 @@ START   ENTA    19
         LDA     YEAR
         ENT2    10      for debugging
         CHAR
-        ENTA    78413
+        ENTA    19
+        SLA     2
+        ADD     =589=
         SLA     1
         SLAX    1
         STA     BUFM,1
