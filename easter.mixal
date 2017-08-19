@@ -124,7 +124,7 @@ START   ENTA    19
 * we are in march
         CHAR
         SLAX    8
-        ADD     897
+        ADD     =897=
         STA     BUFM
         OUT     BUFM(TERM)
         JSJ     4F
@@ -132,7 +132,7 @@ START   ENTA    19
 2H      DECA    31
         CHAR
         SLAX    8
-        ADD     81
+        ADD     =81=
         STA     BUFM
         OUT     BUFM(TERM)
 4H      HLT
