@@ -19,8 +19,8 @@ BUFLEN  EQU     24
 *
 * constants for first and last years in table
         ORIG    125
-STYR    CON     2000
-ENDYR   CON     2050
+STYR    EQU     2000
+ENDYR   EQU     2050
 *
         ORIG    3000
 * set starting year
@@ -39,15 +39,18 @@ START   ENTA    STYR
         CHAR
         ENTA    0
         SLAX    4
-        STA     TITLE + 4
+        ENT1    4
+        STA     TITLE(1)
+        INC1    1
         SLAX    4
         ADD     =1488=          TO
         SLAX    1
-        STA     TITLE + 5
+        STA     TITLE(1)
+        INC1    1
         LDA     ENDYR
         CHAR
         SLAX    5
-        STA     TITLE + 6
+        STA     TITLE(1)
         MOVE    TITLE(7)
         OUT     BUF1(TERM)
         JBUS    *(TERM)         wait until title is done printing
