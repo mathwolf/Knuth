@@ -40,17 +40,17 @@ START   ENTA    2000
         ENTA    0
         SLAX    4
         ENT1    4
-        STA     TITLE(1)
+        STA     TITLE,1
         INC1    1
         SLAX    4
         ADD     =1488=          TO
         SLAX    1
-        STA     TITLE(1)
+        STA     TITLE,1
         INC1    1
         LDA     ENDYR
         CHAR
         SLAX    5
-        STA     TITLE(1)
+        STA     TITLE,1
         ENT1    BUF1
         MOVE    TITLE(7)
         OUT     BUF1(TERM)
