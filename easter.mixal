@@ -117,7 +117,6 @@ START   ENTA    19
         CMPA    C31
         JG      2F
 * we are in march
-        LDA     DATE
         LD1     DATE    for debugging
         CHAR
         SLAX    8
@@ -126,8 +125,7 @@ START   ENTA    19
         OUT     BUFM(TERM)
         JSJ     4F
 * we are in april
-2H      LDA     DATE
-        LD1     DATE    for debugging
+2H      LD1     DATE    for debugging
         DECA    31
         CHAR
         SLAX    8
