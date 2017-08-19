@@ -28,7 +28,7 @@ START   ENTA    2000
         STA     CBUF
 * begin date calculations for current year
 * find golden number
-DATE    ENTA    0
+CALC    ENTA    0
         LDX     YEAR
         DIV     =19=
         INCX    1
@@ -142,10 +142,10 @@ DATE    ENTA    0
         STA     CBUF            change buffers
 * see if we are at the end of the table
 4H      LDA     YEAR
-        CMP     =2050=
+        CMPA     =2050=
         JE      6F
 * not at end of table, go to next line
         INCA    1
         STA     YEAR
-        JSJ     DATE
+        JSJ     CALC
 6H      END     START
