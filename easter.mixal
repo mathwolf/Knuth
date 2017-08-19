@@ -11,21 +11,20 @@ SUND    EQU     104     identify Sunday
 EPCT    EQU     105     epact
 DATE    EQU     106     date in March
 YEAR    EQU     107     current year
-CBUF    EQU     108     current buffer
+STYR    EQU     108     first year in table
+ENDYR   EQU     109     last year
+CBUF    EQU     110     current buffer
 TERM    EQU     19      stdout
 BUF1    EQU     400     two buffers for writing output
 BUF2    EQU     425
 BUFLEN  EQU     24
 *
-* constants for first and last years in table
-        ORIG    125
-STYR    EQU     2000
-ENDYR   EQU     2050
-*
         ORIG    3000
-* set starting year
-START   ENTA    STYR
-        STA     YEAR
+* set values for first and last years in table
+START   ENTA    2000
+        STA     STYR
+        ENTA    2050
+        STA     ENDYR
 * initialize the buffers
         LDA     BUF2
         STA     BUF1 + BUFLEN
