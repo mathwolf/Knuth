@@ -3,23 +3,32 @@
 * Print a table showing date of Easter for 2000 to 2050
 *
 GOLD    EQU     100     golden number in Metonic cycle
-CENT    EQU     102     century number
-CORX    EQU     104     corrections for dropped leap days
-CORZ    EQU     107     corrections for full moon
-SUND    EQU     110     identify Sunday
-EPCT    EQU     111     epact
-DATE    EQU     114     date in March
-YEAR    EQU     115     current year
+CENT    EQU     101     century number
+CORX    EQU     102     corrections for dropped leap days
+CORZ    EQU     103     corrections for full moon
+SUND    EQU     104     identify Sunday
+EPCT    EQU     105     epact
+DATE    EQU     106     date in March
+YEAR    EQU     107     current year
+CBUF    EQU     108     current buffer
 TERM    EQU     19      stdout
-BUFM    EQU     400     buffer for march dates
-BUFA    EQU     425     buffer for april dates
+BUF1    EQU     400     two buffers for writing output
+BUF2    EQU     425
 *
         ORIG    3000
 * set starting year
-START   ENTA    2001
+START   ENTA    2000
         STA     YEAR
+* initialize the buffers
+        LDA     BUF2
+        STA     BUF1 + 24
+        LDA     BUF1
+        STA     BUF2 + 24
+* set the current buffer
+        STA     CBUF
+* begin date calculations for current year
 * find golden number
-        ENTA    0
+DATE    ENTA    0
         LDX     YEAR
         DIV     =19=
         INCX    1
@@ -93,7 +102,7 @@ START   ENTA    2001
         CHAR
         SLAX    8
         ADD     =897=
-        STA     BUFM
+        STA     CBUF
         ENT1    1
         LDA     YEAR
         CHAR
@@ -102,18 +111,20 @@ START   ENTA    2001
         ADD     =200=
         SLA     1
         SLAX    1
-        STA     BUFM,1
+        STA     CBUF,1
         INC1    1
         SLAX    5
-        STA     BUFM,1
-        OUT     BUFM(TERM)
+        STA     CBUF,1
+        OUT     CBUF(TERM)
+        LDA     CBUF + 42
+        STA     CBUF            change buffers
         JSJ     4F
 * we are in april
 2H      DECA    31
         CHAR
         SLAX    8
         ADD     =81=
-        STA     BUFM
+        STA     CBUF
         ENT1    1
         LDA     YEAR
         CHAR
@@ -122,10 +133,19 @@ START   ENTA    2001
         ADD     =589=
         SLA     1
         SLAX    1
-        STA     BUFM,1
+        STA     CBUF,1
         INC1    1
         SLAX    5
-        STA     BUFM,1
-        OUT     BUFM(TERM)
-4H      HLT
-        END     START
+        STA     CBUF,1
+        OUT     CBUF(TERM)
+        LDA     CBUF + 42
+        STA     CBUF            change buffers
+* see if we are at the end of the table
+4H      LDA     YEAR
+        CMP     =2050=
+        JE      6F
+* not at end of table, go to next line
+        INCA    1
+        STA     YEAR
+        JSJ     DATE
+6H      END     START
