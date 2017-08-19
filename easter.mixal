@@ -27,7 +27,11 @@ START   ENTA    2000
 * set the current buffer
         STA     CBUF
 * print title of table
-        OUT     TITLE(TERM)
+        ENT1    BUF1
+        MOVE    TITLE(7)
+        OUT     BUF1(TERM)
+        OUT     BUF2(TERM)
+        MOVE    BUF2(7)         zero out the first buffer
 * begin date calculations for current year
 * find golden number
 CALC    ENTA    0
