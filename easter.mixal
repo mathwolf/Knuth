@@ -34,7 +34,6 @@ START   ENTA    2000
 * set the current buffer
         STA     CBUF
 * print title of table
-        ENT1    BUF1
         LDA     STYR
         CHAR
         ENTA    0
@@ -51,6 +50,7 @@ START   ENTA    2000
         CHAR
         SLAX    5
         STA     TITLE(1)
+        ENT1    BUF1
         MOVE    TITLE(7)
         OUT     BUF1(TERM)
         JBUS    *(TERM)         wait until title is done printing
