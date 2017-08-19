@@ -81,7 +81,6 @@ START   ENTA    19
         DECA    10
         STA     SUND
 * find epact
-        ENT1    10    for debugging
         ENTA    11
         MUL     GOLD
         SLAX    5
@@ -103,10 +102,11 @@ START   ENTA    19
         INCA    1
 4H      STA     EPCT
 * find full moon
+ENT1    10    for debugging
         ENTA    44
         SUB     EPCT
         CMPA    C21
-        JL      2F
+        JGE     2F
         INCA 30
 * advance to sunday
 2H      STA     DATE
