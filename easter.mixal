@@ -118,6 +118,7 @@ START   ENTA    19
         JG      2F
 * we are in march
         LDA     DATE
+        LD1     DATE    for debugging
         CHAR
         SLAX    8
         ADD     897
@@ -126,6 +127,7 @@ START   ENTA    19
         JSJ     4F
 * we are in april
 2H      LDA     DATE
+        LD1     DATE    for debugging
         DECA    31
         CHAR
         SLAX    8
