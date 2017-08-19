@@ -3,80 +3,49 @@
 * Print a table showing date of Easter for 2000 to 2050
 *
 GOLD    EQU     100     golden number in Metonic cycle
-G19     EQU     101     constant 19, used for golden number
 CENT    EQU     102     century number
-C100    EQU     103     constant 100, used for century
 CORX    EQU     104     corrections for dropped leap days
-C3      EQU     105     constant 3
-C4      EQU     106     constant 4
 CORZ    EQU     107     corrections for full moon
-C8      EQU     108     8
-C25     EQU     109     25
 SUND    EQU     110     identify Sunday
 EPCT    EQU     111     epact
-C24     EQU     112     24
-C21     EQU     113     21
 DATE    EQU     114     date in March
 YEAR    EQU     115     current year
-C7      EQU     116     7
-C31     EQU     117     31
 TERM    EQU     19      stdout
 BUFM    EQU     400     buffer for march dates
 BUFA    EQU     425     buffer for april dates
 *
         ORIG    3000
-* set constants
-START   ENTA    19
-        STA     G19
-        ENTA    100
-        STA     C100
-        ENTA    3
-        STA     C3
-        ENTA    4
-        STA     C4
-        ENTA    8
-        STA     C8
-        ENTA    25
-        STA     C25
-        ENTA    24
-        STA     C24
-        ENTA    21
-        STA     C21
-        ENTA    7
-        STA     C7
-        ENTA    31
-        STA     C31
 * set starting year
-        ENTA    2001
+START   ENTA    2001
         STA     YEAR
 * find golden number
         ENTA    0
         LDX     YEAR
-        DIV     G19
+        DIV     =19=
         INCX    1
         STX     GOLD    golden number
 * find century
         ENTA    0
         LDX     YEAR
-        DIV     C100
+        DIV     =100=
         INCA    1
         STA     CENT
 * find corrections
         ENTA    3
         MUL     CENT
-        DIV     C4
+        DIV     =4=
         DECA    12
         STA     CORX
         ENTA    8
         MUL     CENT
         INCX    5
-        DIV     C25
+        DIV     =25=
         DECA    5
         STA     CORZ
 * find sunday
         ENTA    5
         MUL     YEAR
-        DIV     C4
+        DIV     =4=
         SUB     CORX
         DECA    10
         STA     SUND
@@ -90,35 +59,35 @@ START   ENTA    19
         SRAX    5
         DIV     =30=
         SLAX    5
-        CMPA    C25
+        CMPA    =25=
         JNE     2F
         ENTX    11
         CMPX    GOLD
         JLE     4F
         INCA    1
         JSJ     4F
-2H      CMPA    C24
+2H      CMPA    =24=
         JNE     4F
         INCA    1
 4H      STA     EPCT
 * find full moon
         ENTA    44
         SUB     EPCT
-        CMPA    C21
+        CMPA    =21=
         JGE     2F
         INCA 30
 * advance to sunday
 2H      STA     DATE
         ADD     SUND
         SRAX    5
-        DIV     C7
+        DIV     =7=
         SLAX    5
         MUL     =-1=
         SLAX    5
         ADD     DATE
         INCA    7
 * check to see which month we are in
-        CMPA    C31
+        CMPA    =31=
         JG      2F
 * we are in march
         CHAR
