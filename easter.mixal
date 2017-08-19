@@ -113,10 +113,11 @@ START   ENTA    19
         ADD     SUND
         SRAX    5
         DIV     C7
-        LDA     DATE
-        STX     DATE
+        SLAX    5
+        MULT    =-1=
+        SLAX    5
+        ADD     DATE
         INCA    7
-        SUB     DATE
 * check to see which month we are in
         CMPA    C31
         JG      2F
