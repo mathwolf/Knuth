@@ -114,7 +114,7 @@ START   ENTA    19
         SRAX    5
         DIV     C7
         SLAX    5
-        MULT    =-1=
+        MUL     =-1=
         SLAX    5
         ADD     DATE
         INCA    7
