@@ -47,7 +47,7 @@ START   ENTA    19
         ENTA    31
         STA     C31
 * set starting year
-        ENTA    2002
+        ENTA    2001
         STA     YEAR
 * find golden number
         ENTA    0
