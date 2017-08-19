@@ -81,7 +81,7 @@ START   ENTA    19
         DECA    10
         STA     SUND
 * find epact
-        LD1     DATE    for debugging
+        ENT1    10    for debugging
         ENTA    11
         MUL     GOLD
         SLAX    5
