@@ -21,10 +21,10 @@ BUFLEN  EQU     24
 *
         ORIG    3000
 * set values for first and last years in table
-START   ENTA    14240
+START   LDA     =14240=
         STA     STYR
         STA     YEAR
-        ENTA    14260
+        LDA     =14260=
         STA     ENDYR
 * initialize the buffers
         LDA     BUF2
