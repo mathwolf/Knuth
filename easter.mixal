@@ -151,6 +151,7 @@ CALC    ENTA    0
         STA     YEAR
         JSJ     CALC
 6H      HLT
+        ORIG    450
 TITLE   ALF     "DATES"
         ALF     " OF E"
         ALF     "ASTER"
