@@ -139,9 +139,9 @@ START   ENTA    19
         ENTA    0
         SLAX    1
         ADD     =319696376=
-        STA     BUFM + 1
+        STA     BUFM + =1=
         SLAX    5
-        STA     BUFM + 2
+        STA     BUFM + =2=
         OUT     BUFM(TERM)
 4H      HLT
         END     START
