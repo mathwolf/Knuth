@@ -101,14 +101,14 @@ CALC    ENTA    0
 * we are in march
         CHAR
         SLAX    8
-        ADD     =897=
+        ADD     =897=           MA
         STA     CBUF
         ENT1    1
         LDA     YEAR
         CHAR
-        ENTA    19
+        ENTA    19              R
         SLA     2
-        ADD     =200=
+        ADD     =200=           CH
         SLA     1
         SLAX    1
         STA     CBUF,1
@@ -123,14 +123,14 @@ CALC    ENTA    0
 2H      DECA    31
         CHAR
         SLAX    8
-        ADD     =81=
+        ADD     =81=            AP
         STA     CBUF
         ENT1    1
         LDA     YEAR
         CHAR
-        ENTA    19
+        ENTA    19              R
         SLA     2
-        ADD     =589=
+        ADD     =589=           IL
         SLA     1
         SLAX    1
         STA     CBUF,1
@@ -149,4 +149,11 @@ CALC    ENTA    0
         STA     YEAR
         JSJ     CALC
 6H      HLT
+TITLE   ALF     "DATES"
+        ALF     " OF E"
+        ALF     "ASTER"
+        ALF     " FROM"
+        ALF     "2000 "
+        ALF     "TO 20"
+        ALF     "50   "
         END     START
