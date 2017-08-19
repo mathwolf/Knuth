@@ -47,7 +47,7 @@ START   ENTA    19
         ENTA    31
         STA     C31
 * set starting year
-        ENTA    2000
+        ENTA    2002
         STA     YEAR
 * find golden number
         ENTA    0
@@ -102,7 +102,6 @@ START   ENTA    19
         INCA    1
 4H      STA     EPCT
 * find full moon
-        ENT1    10    for debugging
         ENTA    44
         SUB     EPCT
         CMPA    C21
@@ -126,6 +125,18 @@ START   ENTA    19
         SLAX    8
         ADD     =897=
         STA     BUFM
+        ENT1    1
+        LDA     YEAR
+        CHAR
+        ENTA    19
+        SLA     2
+        ADD     =200=
+        SLA     1
+        SLAX    1
+        STA     BUFM,1
+        INC1    1
+        SLAX    5
+        STA     BUFM,1
         OUT     BUFM(TERM)
         JSJ     4F
 * we are in april
@@ -136,7 +147,6 @@ START   ENTA    19
         STA     BUFM
         ENT1    1
         LDA     YEAR
-        ENT2    10      for debugging
         CHAR
         ENTA    19
         SLA     2
