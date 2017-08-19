@@ -137,9 +137,9 @@ START   ENTA    19
         ENT1    1
         LDA     YEAR
         CHAR
-        ENTA    0
+        ENTA    78413
+        SLA     1
         SLAX    1
-        ADD     =319696376=
         STA     BUFM,1
         INC1    1
         SLAX    5
