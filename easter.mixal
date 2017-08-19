@@ -102,7 +102,7 @@ START   ENTA    19
         INCA    1
 4H      STA     EPCT
 * find full moon
-ENT1    10    for debugging
+        ENT1    10    for debugging
         ENTA    44
         SUB     EPCT
         CMPA    C21
