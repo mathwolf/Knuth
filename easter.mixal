@@ -118,7 +118,7 @@ CALC    ENTA    0
         SLAX    5
         STA     CBUF,1
         OUT     CBUF(TERM)
-        LDA     CBUF + 42
+        LDA     CBUF + 24
         STA     CBUF            change buffers
         JSJ     4F
 * we are in april
@@ -140,7 +140,7 @@ CALC    ENTA    0
         SLAX    5
         STA     CBUF,1
         OUT     CBUF(TERM)
-        LDA     CBUF + 42
+        LDA     CBUF + 24
         STA     CBUF            change buffers
 * see if we are at the end of the table
 4H      LDA     YEAR
@@ -151,7 +151,6 @@ CALC    ENTA    0
         STA     YEAR
         JSJ     CALC
 6H      HLT
-        ORIG    450
 TITLE   ALF     "DATES"
         ALF     " OF E"
         ALF     "ASTER"
