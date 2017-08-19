@@ -136,6 +136,7 @@ START   ENTA    19
         STA     BUFM
         ENT1    1
         LDA     YEAR
+        ENT2    10      for debugging
         CHAR
         ENTA    78413
         SLA     1
