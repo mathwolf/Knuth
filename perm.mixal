@@ -1,0 +1,17 @@
+* MIX Assembly Language, GNU MDK 1.2.9
+*
+* Program to permute a table of 6 elements
+*       a b c d e f
+*       c d f b e a
+*
+TABLE   EQU     100     values to be permuted, 6 of them
+*initialize the table
+        ORIG    3000
+START   ENT1    1
+CELL    ST1     TABLE,1
+        CMP1    =6=
+        JE      2F
+        INC1    1
+        JSJ     CELL
+2H      HLT
+        END     START
