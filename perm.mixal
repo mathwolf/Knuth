@@ -34,6 +34,6 @@ CELL    ST1     TABLE,1
         ENT1    2
         STA     TABLE,1
         ENT1    4
-        STX     TABLE,4
+        STX     TABLE,1
         HLT
         END     START
