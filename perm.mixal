@@ -13,5 +13,27 @@ CELL    ST1     TABLE,1
         JE      2F
         INC1    1
         JSJ     CELL
-2H      HLT
+* first cycle (c f a)
+2H      ENT1    1
+        LDX     TABLE,1
+        ENT1    3
+        LDA     TABLE,1
+        ENT1    1
+        STA     TABLE,1
+        ENT1    6
+        LDA     TABLE,1
+        ENT1    3
+        STA     TABLE,1
+        ENT1    6
+        STX     TABLE,1
+* second cycle
+        ENT1    2
+        LDX     TABLE,1
+        ENT1    4
+        LDA     TABLE,1
+        ENT1    2
+        STA     TABLE,1
+        ENT1    4
+        STX     TABLE,4
+        HLT
         END     START
