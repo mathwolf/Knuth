@@ -14,7 +14,7 @@ TERM    EQU     19      output
         ORIG    3000
 START   NOP
 * set current output buffer
-        ENTA    500
+        ENTA    BUF1
         STA     CBUF
 * use I1 for offset in table of permutation data,
 * I2 for offset in current output buffer,
