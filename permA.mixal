@@ -7,7 +7,7 @@ CBUF    EQU     100     points to start of current buffer
 TABLE   EQU     200     store cycles to be multiplied
 BUF1    EQU     500     two buffers for writing output
 BUF2    EQU     525
-BUFLEN  EQU     24      offset for last cell of each buffer
+BUFLEN  EQU     15      offset for last cell of each buffer
 TERM    EQU     19      output
 *
 *
