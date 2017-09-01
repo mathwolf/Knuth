@@ -1,0 +1,16 @@
+* MIX Assembly Language, GNU MDK 1.2.9
+*
+* Program to multiply permutations in cycle form
+* Algorithm A in Knuth 1.3.3
+
+TABLE   EQU     100     store cycles to be multiplied
+TERM    EQU     19      output
+        ORIG    3000
+START   NOP
+        HLT
+* initialize using sample data for now
+        ORIG    TABLE
+        CON     42
+        CON     01
+        CON     43
+        END     START
