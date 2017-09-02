@@ -70,8 +70,7 @@ DISP    OUT     TITLE(TERM)
         ENTA    =0=
         STA     BUF2 + 24
 * set the current buffer, start at end of line
-        ST2     BUF1 + 9
-        ENT3    0
+        ENT2    BUF1 + 9
 * write next word to line
 2H      LDA     TABLE,1
         CHAR
