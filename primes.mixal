@@ -78,7 +78,7 @@ DISP    OUT     TITLE(TERM)
         CMP3    =0=
         JNE     2B
 * at the end of a line, send the buffer to the printer
-        OUT     BUF1,2(TERM)
+        OUT     0,2(TERM)
 * check to see if we are at the end of the table
         CMP1    =40=
         JGE     4F
