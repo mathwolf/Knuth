@@ -60,15 +60,9 @@ START   ENTA    499     desired max offset for table of 500 primes
         ENT2    0
         JSJ     6B
 * table is finished, display the results
-* initial register for position in table data
-* display the title
+* print the title
 DISP    OUT     TITLE(TERM)
         ENT1    9
-* last cell of each buffer gives offset for other buffer
-        ENTA    =25=
-        STA     BUF1 + 24
-        ENTA    =0=
-        STA     BUF2 + 24
 * set the current buffer, start at end of line
         ENT2    BUF1 + 9
 * write next word to line
@@ -94,4 +88,9 @@ TITLE   ALF     "THE F"
         ALF     "IRST "
         ALF     "500 P"
         ALF     "RIMES"
+* last cell of each buffer gives offset for other buffer
+        ORIG    BUF1 + 24
+        CON     BUF2
+        ORIG    BUF2 + 24
+        CON     BUF1
         END     START
