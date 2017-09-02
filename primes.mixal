@@ -85,7 +85,7 @@ DISP    OUT     TITLE(TERM)
 * not at end of table, so switch buffers and get another line
         LD2     24,2
         INC1    19
-        ENT3    0
+        ENT3    9
         JSJ     2B
 4H      HLT
 TITLE   ALF     "THE F"
