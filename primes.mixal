@@ -93,8 +93,8 @@ TITLE   ALF     "THE F"
         ALF     "500 P"
         ALF     "RIMES"
 * last cell of each buffer gives offset for other buffer
-        ORIG    BUF1 + 24
+        ORIG    BUF1+24
         CON     BUF2
-        ORIG    BUF2 + 24
+        ORIG    BUF2+24
         CON     BUF1
         END     START
