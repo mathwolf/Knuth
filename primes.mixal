@@ -66,7 +66,7 @@ DISP    OUT     TITLE(TERM)
 * set the current buffer, start at end of line
         ENT2    BUF1
         INC2    9
-        ENT3    9
+        ENT3    10
 * write next word to line
 2H      LDA     TABLE,1
         CHAR
@@ -83,9 +83,9 @@ DISP    OUT     TITLE(TERM)
         CMP1    =40=
         JGE     4F
 * not at end of table, so switch buffers and get another line
-        LD2     24,2
+        ENT2    24,2
         INC1    19
-        ENT3    9
+        ENT3    10
         JSJ     2B
 4H      HLT
 TITLE   ALF     "THE F"
