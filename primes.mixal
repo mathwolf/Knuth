@@ -64,15 +64,18 @@ START   ENTA    499     desired max offset for table of 500 primes
 DISP    OUT     TITLE(TERM)
         ENT1    9
 * set the current buffer, start at end of line
-        ENT2    BUF1 + 9
+        ENT2    BUF1
+        INC2    9
+        ENT3    9
 * write next word to line
 2H      LDA     TABLE,1
         CHAR
         STX     0,2(2:5)
         DEC1    1
         DEC2    1
+        DEC3    1
 * check to see if we are at end of current line
-        CMP2    =0=
+        CMP3    =0=
         JNE     2B
 * at the end of a line, send the buffer to the printer
         OUT     BUF1,2(TERM)
@@ -80,8 +83,9 @@ DISP    OUT     TITLE(TERM)
         CMP1    =40=
         JGE     4F
 * not at end of table, so switch buffers and get another line
-        LD2     24,4
+        LD2     24,2
         INC1    10
+        ENT3    0
         JSJ     2B
 4H      HLT
 TITLE   ALF     "THE F"
